@@ -74,11 +74,13 @@
             tapping-term-ms = <200>;
         };
 
-        encscroll: encscroll {
+        enc_scroll: enc_scroll {
             compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCSCROLL";
+            label = "ENC_SCROLL";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <20>;
         };
     };
 
@@ -88,12 +90,12 @@
         default_layer {
             bindings = <
 &kp Q             &kp W         &kp E             &kp R                 &kp T                                                       &kp Y      &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D             &kp F                 &kp G        &kp LC(LG(NUMBER_4))            &kp ENTER      &kp H      &kp J  &kp K      &kp L    &kp MINUS
-&mt LEFT_SHIFT Z  &kp X         &kp C             &kp V                 &kp B        &kp GRAVE                       &kp EQUAL      &kp N      &kp M  &kp COMMA  &kp DOT  &kp BACKSPACE
+&kp A             &kp S         &kp D             &kp F                 &kp G        &kp LC(LG(NUMBER_4))            &kp ENTER      &kp H      &kp J  &kp K      &kp L    &kp BACKSPACE
+&mt LEFT_SHIFT Z  &kp X         &kp C             &kp V                 &kp B        &kp GRAVE                       &kp EQUAL      &kp N      &kp M  &kp COMMA  &kp DOT  &kp MINUS
 &kp LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_CONTROL  &lt_to_layer_0 6 ESC  &lt 2 SPACE  &lt_to_layer_0 3 LC(SPACE)      &kp LC(SPACE)  &lt 1 TAB                             &kp SLASH
             >;
 
-            sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+            sensor-bindings = <&enc_scroll>;
         };
 
         FUNCTION {
